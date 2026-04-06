@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#071529" />
+  <title>About Us — BuildRight Construction Corp.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    a, button { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+    input, select, textarea { font-size: 16px !important; }
+    :root {
+      --navy:#0B1F3A; --navy-mid:#122847; --navy-deep:#071529;
+      --amber:#F59E0B; --amber-dark:#D97706; --amber-light:#FCD34D;
+      --white:#FFFFFF; --off-white:#F7F8FA; --gray-light:#ECEEF2;
+      --gray-mid:#9CA3AF; --gray-text:#6B7280; --dark-text:#111827;
+      --radius-sm:6px; --radius-md:14px; --radius-lg:22px;
+      --transition:0.35s cubic-bezier(0.4,0,0.2,1);
+      --max-w:1200px;
+      --shadow-card:0 4px 24px rgba(11,31,58,.10);
+      --shadow-hover:0 16px 48px rgba(11,31,58,.20);
+    }
+    html { scroll-behavior:smooth; font-size:16px; }
+    body { font-family:'Poppins',sans-serif; color:var(--dark-text); background:var(--white); line-height:1.7; overflow-x:hidden; }
+    img { display:block; max-width:100%; }
+    a { text-decoration:none; color:inherit; }
+    ul { list-style:none; }
+    h1,h2,h3,h4 { font-family:'Montserrat',sans-serif; font-weight:800; line-height:1.15; letter-spacing:-0.02em; }
+    h1 { font-size:clamp(2.2rem,5vw,3.8rem); }
+    h2 { font-size:clamp(1.7rem,3.5vw,2.6rem); }
+    h3 { font-size:clamp(1rem,2vw,1.25rem); }
+    p  { font-size:.975rem; color:var(--gray-text); line-height:1.75; }
+    .container { width:100%; max-width:var(--max-w); margin:0 auto; padding:0 28px; }
+    .section-label { display:inline-block; font-family:'Montserrat',sans-serif; font-size:.72rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--amber-dark); background:rgba(245,158,11,.10); border:1px solid rgba(245,158,11,.25); padding:5px 14px; border-radius:999px; margin-bottom:14px; }
+    .section-header { text-align:center; margin-bottom:56px; }
+    .section-header p { max-width:560px; margin:12px auto 0; }
+    .divider { width:52px; height:4px; background:var(--amber); border-radius:999px; margin:14px auto 0; }
+    .btn-primary { display:inline-flex; align-items:center; gap:8px; background:var(--amber); color:var(--navy-deep); font-family:'Montserrat',sans-serif; font-size:.9rem; font-weight:700; letter-spacing:.04em; padding:15px 32px; border-radius:var(--radius-sm); border:none; cursor:pointer; transition:var(--transition); white-space:nowrap; }
+    .btn-primary:hover { background:var(--amber-light); transform:translateY(-2px); box-shadow:0 8px 28px rgba(245,158,11,.35); }
+    .btn-outline-white { display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,.08); color:var(--white); font-family:'Montserrat',sans-serif; font-size:.88rem; font-weight:700; letter-spacing:.04em; padding:13px 26px; border-radius:var(--radius-sm); border:2px solid rgba(255,255,255,.35); cursor:pointer; transition:var(--transition); }
+    .btn-outline-white:hover { background:rgba(255,255,255,.15); border-color:rgba(255,255,255,.7); }
+    .fade-up { opacity:0; transform:translateY(28px); transition:opacity .65s ease,transform .65s ease; }
+    .fade-up.visible { opacity:1; transform:translateY(0); }
+    .fade-in { opacity:0; transition:opacity .8s ease; }
+    .fade-in.visible { opacity:1; }
+    .delay-1{transition-delay:.1s} .delay-2{transition-delay:.2s} .delay-3{transition-delay:.3s}
+    .delay-4{transition-delay:.4s} .delay-5{transition-delay:.5s} .delay-6{transition-delay:.6s}
+
+    /* ---- NAV ---- */
+    #navbar { position:fixed; top:0; left:0; right:0; z-index:999; background:var(--navy-deep); box-shadow:0 2px 24px rgba(0,0,0,.25); padding:14px 0; }
+    .nav-inner { display:flex; align-items:center; justify-content:space-between; }
+    .nav-logo { display:flex; align-items:center; gap:10px; }
+    .nav-logo-mark { width:38px; height:38px; background:var(--amber); border-radius:6px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .nav-logo-mark svg { width:22px; height:22px; fill:var(--navy-deep); }
+    .nav-logo-text { display:flex; flex-direction:column; line-height:1.1; }
+    .nav-logo-text span:first-child { font-family:'Montserrat',sans-serif; font-weight:800; font-size:.95rem; color:var(--white); }
+    .nav-logo-text span:last-child { font-size:.65rem; font-weight:500; color:var(--gray-mid); text-transform:uppercase; letter-spacing:.1em; }
+    .nav-links { display:flex; align-items:center; gap:32px; }
+    .nav-links a { font-family:'Montserrat',sans-serif; font-size:.82rem; font-weight:600; color:rgba(255,255,255,.8); letter-spacing:.04em; text-transform:uppercase; position:relative; transition:color var(--transition); }
+    .nav-links a::after { content:''; position:absolute; bottom:-4px; left:0; width:0; height:2px; background:var(--amber); border-radius:999px; transition:width var(--transition); }
+    .nav-links a:hover, .nav-links a.active { color:var(--white); }
+    .nav-links a:hover::after, .nav-links a.active::after { width:100%; }
+    .nav-cta { margin-left:8px; }
+    .nav-toggle { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:4px; background:none; border:none; }
+    .nav-toggle span { display:block; width:24px; height:2px; background:var(--amber); border-radius:999px; }
+    .mobile-menu { display:none; position:fixed; inset:0; background:var(--navy-deep); z-index:1000; flex-direction:column; align-items:center; justify-content:center; gap:28px; }
+    .mobile-menu.open { display:flex; }
+    .mobile-menu a { font-family:'Montserrat',sans-serif; font-size:1.4rem; font-weight:800; color:var(--white); }
+    .mobile-menu a:hover { color:var(--amber); }
+    .mobile-close { position:absolute; top:20px; right:22px; background:rgba(255,255,255,.08); border:1.5px solid rgba(255,255,255,.15); border-radius:8px; cursor:pointer; color:var(--white); font-size:1.5rem; width:44px; height:44px; display:flex; align-items:center; justify-content:center; z-index:1001; }
+
+    /* ---- PAGE HERO ---- */
+    #page-hero { background:var(--navy-deep); padding:120px 0 72px; position:relative; overflow:hidden; }
+    #page-hero::before { content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px); background-size:40px 40px; }
+    #page-hero::after { content:''; position:absolute; bottom:0; left:0; right:0; height:4px; background:linear-gradient(90deg,var(--navy-deep),var(--amber),var(--navy-deep)); }
+    .hero-inner { position:relative; z-index:1; display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; }
+    .breadcrumb { display:flex; align-items:center; gap:8px; margin-bottom:20px; }
+    .breadcrumb a, .breadcrumb span { font-family:'Montserrat',sans-serif; font-size:.72rem; font-weight:600; text-transform:uppercase; letter-spacing:.08em; color:rgba(255,255,255,.4); transition:color var(--transition); }
+    .breadcrumb a:hover { color:var(--amber); }
+    .breadcrumb .sep { color:rgba(255,255,255,.2); }
+    .breadcrumb .current { color:var(--amber); }
+    .hero-text .section-label { color:var(--amber); background:rgba(245,158,11,.12); border-color:rgba(245,158,11,.25); }
+    .hero-text h1 { color:var(--white)!important; margin-top:4px; }
+    .hero-text h1 em { font-style:normal; color:var(--amber); }
+    .hero-text p { color:rgba(255,255,255,.65); margin-top:16px; font-size:1.05rem; max-width:480px; }
+    .hero-btns { display:flex; gap:14px; margin-top:28px; flex-wrap:wrap; }
+    .hero-img-wrap { position:relative; }
+    .hero-img-wrap img { width:100%; height:440px; object-fit:cover; border-radius:var(--radius-lg); }
+    .founded-badge { position:absolute; bottom:-20px; left:-20px; background:var(--amber); border-radius:var(--radius-md); padding:20px 26px; box-shadow:0 12px 32px rgba(245,158,11,.4); }
+    .founded-badge strong { display:block; font-family:'Montserrat',sans-serif; font-size:2.2rem; font-weight:900; color:var(--navy-deep); line-height:1; }
+    .founded-badge span { font-size:.7rem; font-weight:600; color:var(--navy-mid); text-transform:uppercase; letter-spacing:.08em; }
+
+    /* ---- COMPANY STORY ---- */
+    #story { padding:100px 0; background:var(--white); }
+    .story-grid { display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:start; }
+    .story-text h2 { color:var(--navy); }
+    .story-text p { margin-top:14px; }
+    .story-quote { background:var(--off-white); border-left:4px solid var(--amber); border-radius:0 var(--radius-sm) var(--radius-sm) 0; padding:20px 24px; margin-top:28px; }
+    .story-quote p { font-size:.95rem; color:var(--navy); font-style:italic; font-weight:500; }
+    .story-quote cite { display:block; font-size:.8rem; color:var(--gray-text); font-style:normal; margin-top:8px; }
+    .story-stats { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-top:32px; }
+    .story-stat { background:var(--off-white); border:1px solid var(--gray-light); border-radius:var(--radius-md); padding:22px; text-align:center; transition:border-color var(--transition),box-shadow var(--transition); }
+    .story-stat:hover { border-color:rgba(245,158,11,.3); box-shadow:var(--shadow-card); }
+    .story-stat strong { display:block; font-family:'Montserrat',sans-serif; font-size:1.9rem; font-weight:900; color:var(--amber-dark); line-height:1; }
+    .story-stat span { font-size:.7rem; color:var(--gray-text); text-transform:uppercase; letter-spacing:.07em; font-family:'Montserrat',sans-serif; font-weight:600; }
+    .story-images { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+    .story-img-main { grid-column:span 2; border-radius:var(--radius-md); overflow:hidden; height:260px; }
+    .story-img-sm { border-radius:var(--radius-md); overflow:hidden; height:160px; }
+    .story-img-main img, .story-img-sm img { width:100%; height:100%; object-fit:cover; transition:transform .6s ease; }
+    .story-img-main:hover img, .story-img-sm:hover img { transform:scale(1.04); }
+
+    /* ---- TIMELINE ---- */
+    #timeline { padding:100px 0; background:var(--navy); position:relative; overflow:hidden; }
+    #timeline::before { content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px); background-size:48px 48px; }
+    #timeline .section-label { color:var(--amber); background:rgba(245,158,11,.12); border-color:rgba(245,158,11,.25); }
+    #timeline .section-header h2 { color:var(--white); }
+    #timeline .section-header p { color:rgba(255,255,255,.6); }
+    .timeline-wrap { position:relative; max-width:800px; margin:0 auto; z-index:1; }
+    .timeline-line { position:absolute; left:50%; top:0; bottom:0; width:2px; background:rgba(245,158,11,.2); transform:translateX(-50%); }
+    .timeline-item { display:grid; grid-template-columns:1fr 60px 1fr; gap:0; align-items:start; margin-bottom:52px; position:relative; }
+    .timeline-item:last-child { margin-bottom:0; }
+    .timeline-left { text-align:right; padding-right:32px; padding-top:12px; }
+    .timeline-right { text-align:left; padding-left:32px; padding-top:12px; }
+    .timeline-center { display:flex; flex-direction:column; align-items:center; padding-top:12px; }
+    .timeline-dot { width:18px; height:18px; background:var(--amber); border-radius:50%; border:3px solid var(--navy); box-shadow:0 0 0 4px rgba(245,158,11,.25); flex-shrink:0; position:relative; z-index:2; }
+    .timeline-year { font-family:'Montserrat',sans-serif; font-size:1.6rem; font-weight:900; color:var(--amber); line-height:1; margin-bottom:4px; }
+    .timeline-card { background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.08); border-radius:var(--radius-md); padding:20px; transition:background var(--transition),border-color var(--transition); }
+    .timeline-card:hover { background:rgba(255,255,255,.09); border-color:rgba(245,158,11,.25); }
+    .timeline-card h4 { color:var(--white); font-size:.95rem; margin-bottom:6px; }
+    .timeline-card p { font-size:.82rem; color:rgba(255,255,255,.55); }
+
+    /* ---- TEAM ---- */
+    #team { padding:100px 0; background:var(--off-white); }
+    .team-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:22px; }
+    .team-card { background:var(--white); border-radius:var(--radius-md); overflow:hidden; border:1px solid var(--gray-light); transition:transform var(--transition),box-shadow var(--transition),border-color var(--transition); }
+    .team-card:hover { transform:translateY(-5px); box-shadow:var(--shadow-hover); border-color:rgba(245,158,11,.2); }
+    .team-photo { position:relative; height:220px; overflow:hidden; }
+    .team-photo img { width:100%; height:100%; object-fit:cover; object-position:top center; transition:transform .6s ease; }
+    .team-card:hover .team-photo img { transform:scale(1.05); }
+    .team-badge { position:absolute; bottom:12px; left:12px; background:var(--amber); color:var(--navy-deep); font-family:'Montserrat',sans-serif; font-size:.6rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; padding:4px 10px; border-radius:4px; }
+    .team-body { padding:20px; }
+    .team-body h4 { color:var(--navy); font-size:1rem; margin-bottom:3px; }
+    .team-role { font-size:.78rem; color:var(--amber-dark); font-weight:600; font-family:'Montserrat',sans-serif; margin-bottom:8px; }
+    .team-body p { font-size:.8rem; line-height:1.6; }
+    .team-creds { display:flex; flex-wrap:wrap; gap:5px; margin-top:12px; }
+    .team-cred { font-family:'Montserrat',sans-serif; font-size:.6rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase; color:var(--navy); background:var(--gray-light); padding:3px 8px; border-radius:4px; }
+
+    /* ---- LICENSES ---- */
+    #licenses { padding:100px 0; background:var(--white); }
+    .licenses-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+    .license-card { border:1px solid var(--gray-light); border-radius:var(--radius-md); padding:32px 26px; display:flex; flex-direction:column; gap:14px; transition:border-color var(--transition),box-shadow var(--transition),transform var(--transition); }
+    .license-card:hover { border-color:rgba(245,158,11,.3); box-shadow:var(--shadow-card); transform:translateY(-3px); }
+    .license-icon { width:50px; height:50px; background:rgba(245,158,11,.1); border-radius:10px; display:flex; align-items:center; justify-content:center; }
+    .license-icon svg { width:24px; height:24px; fill:var(--amber-dark); }
+    .license-card h4 { color:var(--navy); font-size:1rem; }
+    .license-card p { font-size:.85rem; }
+    .license-num { font-family:'Montserrat',sans-serif; font-size:.73rem; font-weight:700; color:var(--amber-dark); margin-top:auto; padding-top:12px; border-top:1px solid var(--gray-light); }
+
+    /* ---- SAFETY ---- */
+    #safety { padding:100px 0; background:var(--navy-deep); position:relative; overflow:hidden; }
+    #safety::before { content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px); background-size:40px 40px; }
+    .safety-grid { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; position:relative; z-index:1; }
+    .safety-left .section-label { color:var(--amber); background:rgba(245,158,11,.12); border-color:rgba(245,158,11,.25); }
+    .safety-left h2 { color:var(--white); margin-top:4px; }
+    .safety-left > p { color:rgba(255,255,255,.65); margin-top:14px; }
+    .safety-items { display:flex; flex-direction:column; gap:14px; margin-top:28px; }
+    .safety-item { display:flex; align-items:flex-start; gap:14px; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.08); border-radius:var(--radius-sm); padding:18px; transition:background var(--transition),border-color var(--transition); }
+    .safety-item:hover { background:rgba(255,255,255,.08); border-color:rgba(245,158,11,.2); }
+    .safety-icon { width:40px; height:40px; background:rgba(245,158,11,.15); border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .safety-icon svg { width:20px; height:20px; fill:var(--amber); }
+    .safety-item h4 { color:var(--white); font-size:.92rem; margin-bottom:4px; }
+    .safety-item p { font-size:.82rem; color:rgba(255,255,255,.5); }
+    .safety-stats { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .safety-stat { background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.08); border-radius:var(--radius-md); padding:28px 20px; text-align:center; }
+    .safety-stat strong { display:block; font-family:'Montserrat',sans-serif; font-size:2.4rem; font-weight:900; color:var(--amber); line-height:1; margin-bottom:8px; }
+    .safety-stat span { font-size:.7rem; color:rgba(255,255,255,.5); text-transform:uppercase; letter-spacing:.07em; line-height:1.5; }
+
+    /* ---- AWARDS ---- */
+    #awards { padding:100px 0; background:var(--off-white); }
+    .awards-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+    .award-card { background:var(--white); border-radius:var(--radius-md); padding:30px 26px; border:1px solid var(--gray-light); display:flex; flex-direction:column; gap:12px; transition:transform var(--transition),box-shadow var(--transition); position:relative; overflow:hidden; }
+    .award-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--amber); transform:scaleX(0); transform-origin:left; transition:transform var(--transition); }
+    .award-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-hover); }
+    .award-card:hover::before { transform:scaleX(1); }
+    .award-year { font-family:'Montserrat',sans-serif; font-size:.68rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--amber-dark); }
+    .award-card h4 { color:var(--navy); font-size:.98rem; }
+    .award-card p { font-size:.85rem; }
+    .award-org { font-family:'Montserrat',sans-serif; font-size:.72rem; font-weight:600; color:var(--gray-mid); margin-top:auto; padding-top:10px; border-top:1px solid var(--gray-light); }
+
+    /* ---- CTA ---- */
+    #cta { padding:88px 0; background:var(--navy-deep); position:relative; overflow:hidden; }
+    .cta-bg-photo { position:absolute; inset:0; background-image:url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600&q=70&auto=format&fit=crop'); background-size:cover; background-position:center; opacity:.10; }
+    .cta-accent { position:absolute; top:0; left:0; right:0; height:3px; background:var(--amber); }
+    .cta-circle-1,.cta-circle-2 { position:absolute; border-radius:50%; border:1px solid rgba(245,158,11,.12); }
+    .cta-circle-1 { width:420px; height:420px; top:-210px; right:-100px; }
+    .cta-circle-2 { width:260px; height:260px; bottom:-130px; left:8%; }
+    .cta-inner { position:relative; z-index:2; display:flex; align-items:center; justify-content:space-between; gap:40px; flex-wrap:wrap; }
+    .cta-text h2 { color:var(--white); max-width:520px; }
+    .cta-text p { color:rgba(255,255,255,.6); margin-top:12px; max-width:480px; }
+    .cta-actions { display:flex; flex-direction:column; align-items:flex-start; gap:16px; flex-shrink:0; }
+    .cta-phone-row { display:flex; align-items:center; gap:12px; }
+    .cta-phone-icon { width:44px; height:44px; background:rgba(245,158,11,.15); border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .cta-phone-icon svg { width:20px; height:20px; fill:var(--amber); }
+    .cta-phone-text span { display:block; font-size:.7rem; color:rgba(255,255,255,.5); text-transform:uppercase; letter-spacing:.08em; }
+    .cta-phone-text a { font-family:'Montserrat',sans-serif; font-size:1.15rem; font-weight:800; color:var(--white); transition:color var(--transition); }
+    .cta-phone-text a:hover { color:var(--amber); }
+
+    /* ---- FOOTER ---- */
+    #footer { background:var(--navy-deep); padding:64px 0 0; }
+    .footer-grid { display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:48px; padding-bottom:48px; border-bottom:1px solid rgba(255,255,255,.07); }
+    .footer-brand p { font-size:.85rem; color:rgba(255,255,255,.45); margin-top:16px; max-width:260px; line-height:1.7; }
+    .footer-socials { display:flex; gap:10px; margin-top:24px; }
+    .footer-social { width:36px; height:36px; border-radius:8px; background:rgba(255,255,255,.07); display:flex; align-items:center; justify-content:center; transition:background var(--transition); }
+    .footer-social:hover { background:var(--amber); }
+    .footer-social svg { width:16px; height:16px; fill:var(--white); transition:fill var(--transition); }
+    .footer-social:hover svg { fill:var(--navy-deep); }
+    .footer-col h4 { font-family:'Montserrat',sans-serif; font-size:.78rem; font-weight:800; text-transform:uppercase; letter-spacing:.1em; color:var(--amber); margin-bottom:20px; }
+    .footer-col ul li { margin-bottom:11px; }
+    .footer-col ul li a { font-size:.85rem; color:rgba(255,255,255,.5); transition:color var(--transition); }
+    .footer-col ul li a:hover { color:var(--white); }
+    .footer-contact-item { display:flex; align-items:flex-start; gap:10px; margin-bottom:14px; }
+    .footer-contact-item svg { width:15px; height:15px; fill:var(--amber); flex-shrink:0; margin-top:3px; }
+    .footer-contact-item span { font-size:.82rem; color:rgba(255,255,255,.5); line-height:1.5; }
+    .footer-bottom { display:flex; align-items:center; justify-content:space-between; padding:20px 0; flex-wrap:wrap; gap:12px; }
+    .footer-bottom p { font-size:.78rem; color:rgba(255,255,255,.3); }
+    .footer-bottom-links { display:flex; gap:20px; }
+    .footer-bottom-links a { font-size:.78rem; color:rgba(255,255,255,.3); transition:color var(--transition); }
+    .footer-bottom-links a:hover { color:var(--white); }
+    .footer-license { text-align:center; padding:10px 0; font-size:.72rem; color:rgba(255,255,255,.2); font-family:'Montserrat',sans-serif; letter-spacing:.05em; }
+
+    /* ---- RESPONSIVE ---- */
+    @media(max-width:1024px){
+      .hero-inner { grid-template-columns:1fr; gap:40px; }
+      .hero-img-wrap { display:none; }
+      .story-grid { grid-template-columns:1fr; gap:48px; }
+      .story-images { display:none; }
+      .timeline-line { left:28px; transform: none; }
+      .timeline-item { grid-template-columns:56px 1fr; gap:0; }
+      .timeline-left { display:none; }
+      .timeline-center { padding-top:12px; width: 56px; display: flex; justify-content: center; }
+      .timeline-right { padding-left:12px; padding-right: 0; }
+      .team-grid { grid-template-columns:repeat(2,1fr); }
+      .licenses-grid { grid-template-columns:repeat(2,1fr); }
+      .safety-grid { grid-template-columns:1fr; gap:40px; }
+      .awards-grid { grid-template-columns:repeat(2,1fr); }
+      .footer-grid { grid-template-columns:1fr 1fr; gap:36px; }
+      .cta-inner { flex-direction:column; }
+      .cta-actions { align-items:center; width:100%; }
+    }
+    @media(max-width:768px){
+      .nav-links,.nav-cta { display:none; }
+      .nav-toggle { display:flex; }
+      #page-hero { padding:100px 0 48px; }
+      .hero-btns { flex-direction:column; }
+      .hero-btns .btn-primary,.hero-btns .btn-outline-white { width:100%; justify-content:center; }
+      #story,#timeline,#team,#licenses,#safety,#awards { padding:64px 0; }
+      .story-stats { grid-template-columns:1fr 1fr; }
+      .team-grid { grid-template-columns:1fr 1fr; gap:14px; }
+      .licenses-grid { grid-template-columns:1fr; }
+      .safety-stats { grid-template-columns:1fr 1fr; }
+      .awards-grid { grid-template-columns:1fr; }
+      #cta { padding:64px 0; }
+      .footer-grid { grid-template-columns:1fr; gap:28px; }
+      .footer-bottom { flex-direction:column; align-items:center; text-align:center; }
+      .footer-bottom-links { justify-content:center; }
+    }
+    @media(max-width:480px){
+      .container { padding:0 16px; }
+      .timeline-line { left:16px; }
+      .timeline-item { grid-template-columns:32px 1fr; }
+      .timeline-center { width:32px; }
+      .timeline-right { padding-left:12px; }
+      h1 { font-size:1.85rem; }
+      h2 { font-size:1.45rem; }
+      .team-grid { grid-template-columns:1fr; }
+      .safety-stats { grid-template-columns:1fr 1fr; }
+      .story-stats { grid-template-columns:1fr 1fr; }
+      .nav-logo-text span:last-child { display:none; }
+      .footer-grid { gap:24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-mark"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22" fill="#071529"/></svg></div>
+        <div class="nav-logo-text"><span>BuildRight Corp.</span><span>Construction &amp; Renovation</span></div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="quote.html" class="btn-primary nav-cta">
+        <svg viewBox="0 0 20 20" fill="currentColor" style="width:15px;height:15px;"><path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd"/></svg>
+        Get a Free Quote
+      </a>
+      <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" id="mobileClose">&times;</button>
+    <a href="index.html" class="mobile-link">Home</a>
+    <a href="services.html" class="mobile-link">Services</a>
+    <a href="projects.html" class="mobile-link">Projects</a>
+    <a href="about.html" class="mobile-link">About</a>
+    <a href="contact.html" class="mobile-link">Contact</a>
+    <a href="quote.html" class="btn-primary" style="margin-top:12px;">Get a Free Quote</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <section id="page-hero">
+    <div class="container">
+      <div class="hero-inner">
+        <div class="hero-text">
+          <div class="breadcrumb">
+            <a href="index.html">Home</a>
+            <span class="sep">/</span>
+            <span class="current">About</span>
+          </div>
+          <span class="section-label">Our Story</span>
+          <h1>Building the Philippines <em>One Project at a Time</em></h1>
+          <p>Since 2009, BuildRight Construction Corp. has been transforming lots into homes and visions into landmark commercial structures — powered by licensed engineers, honest pricing, and an uncompromising standard of quality.</p>
+          <div class="hero-btns">
+            <a href="quote.html" class="btn-primary">
+              <svg viewBox="0 0 20 20" fill="currentColor" style="width:15px;height:15px;"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>
+              Get a Free Quote
+            </a>
+            <a href="contact.html" class="btn-outline-white">Talk to Our Team</a>
+          </div>
+        </div>
+        <div class="hero-img-wrap fade-in">
+          <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&q=80&auto=format&fit=crop" alt="BuildRight team on site" />
+          <div class="founded-badge">
+            <strong>2009</strong>
+            <span>Year Founded</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPANY STORY -->
+  <section id="story">
+    <div class="container">
+      <div class="story-grid">
+        <div class="fade-up">
+          <span class="section-label">Who We Are</span>
+          <h2 style="margin-top:4px;">From a Small Team to a Trusted Name</h2>
+          <p>BuildRight Construction Corp. was founded in 2009 by Engr. Ramon Villanueva, a licensed civil engineer with over 20 years of fieldwork experience. Starting with a crew of eight and a single residential project in Quezon City, we grew steadily — project by project, referral by referral.</p>
+          <p>Today, we are a full-service general contractor with over 50 licensed engineers, architects, and skilled workers. We have completed more than 320 projects across Metro Manila, Cavite, Laguna, Bulacan, Rizal, and Pampanga — from simple home renovations to multi-storey commercial buildings.</p>
+          <p>What has not changed since day one is our core commitment: deliver what we promise, charge what we quote, and build it to last. Every project carries our name — and we take that seriously.</p>
+          <div class="story-quote">
+            <p>"We do not just build structures. We build trust — with every truss, every column, every slab we pour."</p>
+            <cite>— Engr. Ramon Villanueva, Founder &amp; CEO</cite>
+          </div>
+          <div class="story-stats">
+            <div class="story-stat fade-up delay-1"><strong>15+</strong><span>Years in Operation</span></div>
+            <div class="story-stat fade-up delay-2"><strong>320+</strong><span>Projects Completed</span></div>
+            <div class="story-stat fade-up delay-3"><strong>50+</strong><span>Licensed Engineers</span></div>
+            <div class="story-stat fade-up delay-4"><strong>98%</strong><span>Client Satisfaction</span></div>
+          </div>
+        </div>
+        <div class="story-images fade-in delay-2">
+          <div class="story-img-main">
+            <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=900&q=80&auto=format&fit=crop" alt="BuildRight team at work" loading="lazy" />
+          </div>
+          <div class="story-img-sm">
+            <img src="https://images.unsplash.com/photo-1590479773265-7464e5d48118?w=500&q=80&auto=format&fit=crop" alt="Planning session" loading="lazy" />
+          </div>
+          <div class="story-img-sm">
+            <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=500&q=80&auto=format&fit=crop" alt="Construction site" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section id="timeline">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label fade-up">Our Journey</span>
+        <h2 class="fade-up delay-1">16 Years of Building Excellence</h2>
+        <div class="divider fade-up delay-2"></div>
+        <p class="fade-up delay-2">Key milestones that shaped BuildRight into the contractor the Philippines trusts today.</p>
+      </div>
+      <div class="timeline-wrap">
+        <div class="timeline-line"></div>
+
+        <div class="timeline-item fade-up delay-1">
+          <div class="timeline-left"><div class="timeline-year">2009</div></div>
+          <div class="timeline-center"><div class="timeline-dot"></div></div>
+          <div class="timeline-right">
+            <div class="timeline-card">
+              <h4>Company Founded</h4>
+              <p>Engr. Ramon Villanueva establishes BuildRight Construction in Quezon City with a team of 8 and one residential project worth ₱1.2M.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item fade-up delay-2">
+          <div class="timeline-left">
+            <div class="timeline-card">
+              <h4>PCAB Accreditation Achieved</h4>
+              <p>BuildRight earns its PCAB license — opening the door to government and larger private commercial contracts across Luzon.</p>
+            </div>
+          </div>
+          <div class="timeline-center"><div class="timeline-dot"></div></div>
+          <div class="timeline-right"><div class="timeline-year">2012</div></div>
+        </div>
+
+        <div class="timeline-item fade-up delay-3">
+          <div class="timeline-left"><div class="timeline-year">2015</div></div>
+          <div class="timeline-center"><div class="timeline-dot"></div></div>
+          <div class="timeline-right">
+            <div class="timeline-card">
+              <h4>First ₱50M Commercial Contract</h4>
+              <p>Awarded a major commercial building contract in Pasig City — a turning point in our commercial division and a landmark moment for the company.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item fade-up delay-4">
+          <div class="timeline-left">
+            <div class="timeline-card">
+              <h4>Design &amp; Build Division Launched</h4>
+              <p>We established our in-house architectural team, allowing us to offer full design-and-build services under one contract for all project types.</p>
+            </div>
+          </div>
+          <div class="timeline-center"><div class="timeline-dot"></div></div>
+          <div class="timeline-right"><div class="timeline-year">2018</div></div>
+        </div>
+
+        <div class="timeline-item fade-up delay-5">
+          <div class="timeline-left"><div class="timeline-year">2021</div></div>
+          <div class="timeline-center"><div class="timeline-dot"></div></div>
+          <div class="timeline-right">
+            <div class="timeline-card">
+              <h4>100th Project Milestone</h4>
+              <p>Completed our 100th project — a mixed-use development in Mandaluyong — celebrated with a team of 35 licensed engineers and growing staff.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item fade-up delay-6">
+          <div class="timeline-left">
+            <div class="timeline-card">
+              <h4>300+ Projects &amp; Provincial Expansion</h4>
+              <p>Surpassed 300 completed projects and expanded operations to Pampanga, Bulacan, and Cavite with dedicated project teams in each province.</p>
+            </div>
+          </div>
+          <div class="timeline-center"><div class="timeline-dot"></div></div>
+          <div class="timeline-right"><div class="timeline-year">2024</div></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section id="team">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label fade-up">The People Behind the Work</span>
+        <h2 class="fade-up delay-1">Team &amp; Leadership</h2>
+        <div class="divider fade-up delay-2"></div>
+        <p class="fade-up delay-2">Licensed, experienced, and deeply committed to every project they lead.</p>
+      </div>
+      <div class="team-grid">
+        <div class="team-card fade-up delay-1">
+          <div class="team-photo">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80&auto=format&fit=crop&crop=top" alt="Engr. Ramon Villanueva" loading="lazy" />
+            <div class="team-badge">Founder &amp; CEO</div>
+          </div>
+          <div class="team-body">
+            <h4>Engr. Ramon Villanueva</h4>
+            <div class="team-role">Founder &amp; Chief Executive Officer</div>
+            <p>20+ years in civil engineering. Leads company vision, client relationships, and major project oversight.</p>
+            <div class="team-creds"><span class="team-cred">PRC CE</span><span class="team-cred">PCAB</span><span class="team-cred">PICE</span></div>
+          </div>
+        </div>
+        <div class="team-card fade-up delay-2">
+          <div class="team-photo">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80&auto=format&fit=crop&crop=top" alt="Arch. Maria Santos" loading="lazy" />
+            <div class="team-badge">Chief Architect</div>
+          </div>
+          <div class="team-body">
+            <h4>Arch. Maria Santos</h4>
+            <div class="team-role">Chief Architect &amp; Design Lead</div>
+            <p>Heads our design-and-build division. Specializes in residential and mixed-use commercial architecture.</p>
+            <div class="team-creds"><span class="team-cred">PRC Arch</span><span class="team-cred">UAP</span><span class="team-cred">LEED</span></div>
+          </div>
+        </div>
+        <div class="team-card fade-up delay-3">
+          <div class="team-photo">
+            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80&auto=format&fit=crop&crop=top" alt="Engr. Jose Reyes" loading="lazy" />
+            <div class="team-badge">VP Construction</div>
+          </div>
+          <div class="team-body">
+            <h4>Engr. Jose Reyes</h4>
+            <div class="team-role">VP Construction Operations</div>
+            <p>Oversees all active project sites, subcontractor management, and on-site quality control protocols.</p>
+            <div class="team-creds"><span class="team-cred">PRC CE</span><span class="team-cred">PICE</span><span class="team-cred">Safety Officer</span></div>
+          </div>
+        </div>
+        <div class="team-card fade-up delay-4">
+          <div class="team-photo">
+            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80&auto=format&fit=crop&crop=top" alt="Engr. Lorna Cruz" loading="lazy" />
+            <div class="team-badge">Structural Engineer</div>
+          </div>
+          <div class="team-body">
+            <h4>Engr. Lorna Cruz</h4>
+            <div class="team-role">Senior Structural Engineer</div>
+            <p>Leads structural design reviews and ensures full compliance with NSCP and DPWH engineering standards.</p>
+            <div class="team-creds"><span class="team-cred">PRC CE</span><span class="team-cred">ASEP</span><span class="team-cred">PICE</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LICENSES & CERTS -->
+  <section id="licenses">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label fade-up">Credentials</span>
+        <h2 class="fade-up delay-1">Licenses &amp; Certifications</h2>
+        <div class="divider fade-up delay-2"></div>
+        <p class="fade-up delay-2">Every license and accreditation we hold — so you know exactly who you are hiring.</p>
+      </div>
+      <div class="licenses-grid">
+        <div class="license-card fade-up delay-1">
+          <div class="license-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <h4>PCAB License</h4>
+          <p>Philippine Contractors Accreditation Board — Category B General Engineering and General Building contractor. Legally authorized to undertake government and private projects nationwide.</p>
+          <div class="license-num">License No. A-001234 &nbsp;·&nbsp; Valid until 2026</div>
+        </div>
+        <div class="license-card fade-up delay-2">
+          <div class="license-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+          <h4>DTI Registration</h4>
+          <p>Department of Trade and Industry registered business. BuildRight Construction Corp. is a properly registered domestic corporation operating under Philippine law.</p>
+          <div class="license-num">DTI Reg. No. 2009-12345 &nbsp;·&nbsp; Renewed Annually</div>
+        </div>
+        <div class="license-card fade-up delay-3">
+          <div class="license-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
+          <h4>PRC Licensed Engineers</h4>
+          <p>All engineers and architects are registered with the Professional Regulation Commission. PRC license numbers available upon request for full verification.</p>
+          <div class="license-num">50+ Active PRC Licenses on File</div>
+        </div>
+        <div class="license-card fade-up delay-4">
+          <div class="license-icon"><svg viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg></div>
+          <h4>SEC Registration</h4>
+          <p>Securities and Exchange Commission registered corporation. Full corporate governance, transparent financial reporting, and legal accountability to all clients and partners.</p>
+          <div class="license-num">SEC Reg. No. CS201900001</div>
+        </div>
+        <div class="license-card fade-up delay-5">
+          <div class="license-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+          <h4>DOLE Compliance</h4>
+          <p>Fully compliant with DOLE regulations on workers' welfare, mandatory benefits, occupational health and safety standards, and all labor requirements on project sites.</p>
+          <div class="license-num">DOLE Establishment No. NCR-QC-2009-1234</div>
+        </div>
+        <div class="license-card fade-up delay-6">
+          <div class="license-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <h4>PhilGEPS Registered</h4>
+          <p>Registered in the Philippine Government Electronic Procurement System — eligible to participate in all government infrastructure and construction bidding processes.</p>
+          <div class="license-num">PhilGEPS Reg. No. 123456</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SAFETY RECORD -->
+  <section id="safety">
+    <div class="container">
+      <div class="safety-grid">
+        <div class="fade-up">
+          <span class="section-label">Safety First</span>
+          <h2 style="color:var(--white);margin-top:4px;">Our Safety Record</h2>
+          <p>We operate every job site under strict DOLE-compliant safety protocols. Zero major incidents since 2015 is not a coincidence — it is the result of daily safety briefings, proper PPE enforcement, and a culture that puts workers first.</p>
+          <div class="safety-items">
+            <div class="safety-item">
+              <div class="safety-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+              <div>
+                <h4>Daily Safety Briefings</h4>
+                <p>Every crew begins each day with a toolbox talk covering site-specific hazards and PPE requirements.</p>
+              </div>
+            </div>
+            <div class="safety-item">
+              <div class="safety-icon"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+              <div>
+                <h4>DOLE-Compliant Protocols</h4>
+                <p>All safety procedures follow DOLE Department Order 198 — the Occupational Safety and Health Standards for construction.</p>
+              </div>
+            </div>
+            <div class="safety-item">
+              <div class="safety-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+              <div>
+                <h4>Zero Major Incidents Since 2015</h4>
+                <p>A decade of safe operations across hundreds of active project sites — our most important achievement as a company.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="fade-in delay-2">
+          <div class="safety-stats">
+            <div class="safety-stat"><strong>0</strong><span>Major Incidents<br/>Since 2015</span></div>
+            <div class="safety-stat"><strong>100%</strong><span>DOLE<br/>Compliance</span></div>
+            <div class="safety-stat"><strong>Daily</strong><span>Safety Briefings<br/>on All Sites</span></div>
+            <div class="safety-stat"><strong>10+</strong><span>Certified Safety<br/>Officers on Staff</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AWARDS & PRESS -->
+  <section id="awards">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label fade-up">Recognition</span>
+        <h2 class="fade-up delay-1">Awards &amp; Press</h2>
+        <div class="divider fade-up delay-2"></div>
+        <p class="fade-up delay-2">Industry recognition that reflects our standard of work and reputation in the Philippine construction sector.</p>
+      </div>
+      <div class="awards-grid">
+        <div class="award-card fade-up delay-1">
+          <div class="award-year">2024</div>
+          <h4>Best General Contractor — NCR</h4>
+          <p>Recognized as the top general contractor in the National Capital Region for residential project quality and client satisfaction scores.</p>
+          <div class="award-org">Philippine Constructors Association (PCA)</div>
+        </div>
+        <div class="award-card fade-up delay-2">
+          <div class="award-year">2023</div>
+          <h4>Excellence in Commercial Construction</h4>
+          <p>Awarded for the successful delivery of the Pasig City office building — completed ahead of schedule and recognized for structural integrity and finish quality.</p>
+          <div class="award-org">PCAB Annual Awards 2023</div>
+        </div>
+        <div class="award-card fade-up delay-3">
+          <div class="award-year">2022</div>
+          <h4>Safety Excellence Award</h4>
+          <p>Honored for maintaining zero major safety incidents across all project sites from 2015 to 2022 — one of only 12 contractors in the Philippines to achieve this.</p>
+          <div class="award-org">Department of Labor and Employment (DOLE)</div>
+        </div>
+        <div class="award-card fade-up delay-4">
+          <div class="award-year">2021</div>
+          <h4>Top SME Contractor of the Year</h4>
+          <p>Named one of the top small-to-medium construction enterprises in Metro Manila for transparent pricing, quality workmanship, and on-time delivery record.</p>
+          <div class="award-org">Philippine Chamber of Commerce &amp; Industry</div>
+        </div>
+        <div class="award-card fade-up delay-5">
+          <div class="award-year">2019</div>
+          <h4>Featured: BusinessWorld Philippines</h4>
+          <p>Featured in a BusinessWorld article on Philippine construction firms leading the way in design-and-build integrated services for the residential market.</p>
+          <div class="award-org">BusinessWorld Philippines</div>
+        </div>
+        <div class="award-card fade-up delay-6">
+          <div class="award-year">2018</div>
+          <h4>Green Building Pioneer Award</h4>
+          <p>Recognized for incorporating sustainable design and energy-efficient building practices across three commercial projects in Taguig and Makati.</p>
+          <div class="award-org">Philippine Green Building Council (PHILGBC)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta">
+    <div class="cta-bg-photo"></div>
+    <div class="cta-accent"></div>
+    <div class="cta-circle-1"></div>
+    <div class="cta-circle-2"></div>
+    <div class="container cta-inner">
+      <div class="cta-text fade-up">
+        <h2>Work With a Contractor<br/>You Can Actually Trust</h2>
+        <p>15 years. 320+ projects. Zero hidden charges. Get a free site visit and detailed quote from our team today.</p>
+      </div>
+      <div class="cta-actions fade-up delay-2">
+        <div class="cta-phone-row">
+          <div class="cta-phone-icon"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg></div>
+          <div class="cta-phone-text"><span>Call us now</span><a href="tel:+639175550192">+63 917 555 0192</a></div>
+        </div>
+        <a href="quote.html" class="btn-primary" style="font-size:1rem;padding:17px 36px;">
+          Get a Free Quote
+          <svg viewBox="0 0 20 20" fill="currentColor" style="width:16px;height:16px;"><path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="nav-logo" style="margin-bottom:0;">
+            <div class="nav-logo-mark"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22" fill="#071529"/></svg></div>
+            <div class="nav-logo-text"><span>BuildRight Corp.</span><span>Construction &amp; Renovation</span></div>
+          </div>
+          <p>A trusted PCAB-accredited general contractor serving homeowners, developers, and businesses across the Philippines since 2009.</p>
+          <div class="footer-socials">
+            <a href="#" class="footer-social" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+            <a href="#" class="footer-social" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="#" class="footer-social" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#071529"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="quote.html">Get a Quote</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Our Services</h4>
+          <ul>
+            <li><a href="services.html#service-residential">Residential Construction</a></li>
+            <li><a href="services.html#service-renovation">Renovation &amp; Remodeling</a></li>
+            <li><a href="services.html#service-commercial">Commercial Projects</a></li>
+            <li><a href="services.html#service-roofing">Roofing &amp; Waterproofing</a></li>
+            <li><a href="services.html#service-design">Design &amp; Build</a></li>
+            <li><a href="services.html#service-management">Project Management</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Info</h4>
+          <div class="footer-contact-item"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Unit 4B Starmall Bldg., EDSA cor. Shaw Blvd., Mandaluyong City, Metro Manila 1550</span></div>
+          <div class="footer-contact-item"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg><span>+63 917 555 0192</span></div>
+          <div class="footer-contact-item"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span>info@buildrightcorp.ph</span></div>
+          <div class="footer-contact-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Mon–Sat: 8:00 AM – 6:00 PM</span></div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 BuildRight Construction Corp. All rights reserved.</p>
+        <div class="footer-bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms of Use</a><a href="#">Site Map</a></div>
+      </div>
+      <div class="footer-license">PCAB License No. A-001234 &nbsp;|&nbsp; DTI Reg. No. 2009-12345 &nbsp;|&nbsp; SEC Reg. No. CS201900001</div>
+    </div>
+  </footer>
+
+  <script>
+    const mobileMenu  = document.getElementById('mobileMenu');
+    const navToggle   = document.getElementById('navToggle');
+    const mobileClose = document.getElementById('mobileClose');
+    function openMenu()  { mobileMenu.classList.add('open');    document.body.style.overflow='hidden'; }
+    function closeMenu() { mobileMenu.classList.remove('open'); document.body.style.overflow=''; }
+    navToggle.addEventListener('click', () => mobileMenu.classList.contains('open') ? closeMenu() : openMenu());
+    mobileClose.addEventListener('click', closeMenu);
+    document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', closeMenu));
+    mobileMenu.addEventListener('click', e => { if(e.target===mobileMenu) closeMenu(); });
+
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold:0.1 });
+    document.querySelectorAll('.fade-up,.fade-in').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>
